@@ -22,4 +22,37 @@ What you need to use this plugin:
 
 How to get going:
 
-TODO
+* Install the plugin (this will probably change when the plugin goes public):
+    script/plugin install git@github.com:xaop/rformation_rails_plugin.git
+* Create a controller FormController
+* Create an action in FormController
+    def form
+      @name = "name"
+      @address = "address"
+    end
+* Create a view to go with this action, e.g., app/views/form/form.html.haml with
+  the following contents:
+    - form_tag "submit_form" do
+      = render :partial => "form"
+      = submit_tag "Submit"
+* Create the partial for the form as app/views/form/_form.html.rfrm with the
+  following content:
+    text "name" do
+      mandatory
+      label "Your name"
+    end
+    text "address" do
+      label "Your address"
+    end
+* Create the submit_form action
+    def submit_form
+      if params[:form_errors].blank?
+        # do something with params[:name] and params[:address]
+      else
+        # There were validation errors. params[:form_errors] is
+        # a Hash with the field labels as keys and arrays of errors
+        # as values.
+      end
+    end
+* Visit the URL for the action, fill out the form and submit
+* 
