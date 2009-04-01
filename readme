@@ -1,0 +1,25 @@
+This plugin allows you to use RFormation forms from Rails. It adds a
+new templating engine so you can create views with extension rfrm that
+use the RFormation DSL.
+
+What you get when you use this plugin is:
+
+* A powerful DSL to create forms. We are constantly extending the DSL to
+  increase the expressive power.
+* Specify validations once in the DSL and they will be used both client
+  side and server side. Both happen transparently.
+* RFormation does not generate full forms; it generates only the body, so
+  you can use RFormation for any type of form that Rails provide, such as
+  regular forms and Ajax forms.
+* The forms are filled in from both instance variables and local variables,
+  whichever has the right name.
+
+What you need to use this plugin:
+
+* The plugin has been tested with version 2.2.2 of Rails. We will lower this
+  requirement once we have tested the plugin with lower versions of Rails.
+* At least version 0.4.8 of RFormation.
+
+How to get going:
+
+TODO
