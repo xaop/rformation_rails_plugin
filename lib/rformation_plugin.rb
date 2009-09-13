@@ -16,7 +16,7 @@ module RFormation
       cached_data = @@form_cache[filename]
       if !cached_data || cached_data[:mtime] < ::File.mtime(filename)
         relative_filename = filename.sub(/\A#{Regexp.escape(RAILS_ROOT)}\//, "")
-        str = "object '$rformation$#{relative_filename}', :fix do ; #{::File.read(filename)} ; end"
+        str = "object '$rformation$#{relative_filename}' do ; #{::File.read(filename)} ; end"
         cached_data = @@form_cache[filename] = { :mtime => ::File.mtime(filename), :form => RFormation::Form.new(str, :filename => filename, :lists_of_values => proc { true }) }
       end
       cached_data[:form]
