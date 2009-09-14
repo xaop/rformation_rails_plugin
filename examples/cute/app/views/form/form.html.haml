@@ -1,0 +1,8 @@
+- if @errors
+  .bad_message
+    - @errors.each do |k, v|
+      %div== #{h k} #{h v}
+- form_tag "submit_form" do
+  = render :partial => "form"
+  = submit_tag "Submit", :class => "submit"
+  = submit_tag "Cancel", :class => "cancel submit"

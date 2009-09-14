@@ -1,0 +1,132 @@
+body * {
+  font-family: arial;
+  font-size: 100%;
+}
+dl {
+  padding: 0;
+  margin: 0;
+}
+dt {
+  float: left;
+  clear: left;
+  width: 9.5em;
+}
+dd {
+  float: left;
+  margin-left: 1em;
+}
+.clear {
+  clear: both;
+}
+.bad_message {
+  background-color: #FFC0C0;
+  padding: .5em .5em .5em .5em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 3px solid #D06060;
+  color: #C00000;
+  margin: 1.5em 1em 2.5em 1em;
+  font-weight: bold;
+}
+.good_message {
+  background-color: #C0FFC0;
+  padding: .5em .5em .5em .5em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 3px solid #60D060;
+  color: #00C000;
+  margin: 1.5em 1em 1.5em 1em;
+  font-weight: bold;
+}
+label.invalid {
+  color: #E03020;
+}
+label {
+  float: left;
+  margin-right: .7em;
+  background-color: #D0FFD0;
+  padding: .3em .4em .4em .5em;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border: 2px solid #80D080;
+  color: #00A000;
+  margin-bottom: .5em;
+}
+label span, label input, label textarea {
+  display: block;
+  width: 250px;
+  margin: 0;
+}
+label span {
+  margin-bottom: 2px;
+}
+label input, label textarea {
+  margin-left: 22px;
+  border: 1px solid #80D080;
+  padding: 1px;
+}
+label.switch_box span, label.switch_box input {
+  display: inline;
+  width: auto;
+}
+label.switch_box {
+  float: left;
+  background-color: #D1B0FF;
+  border: 2px solid #853CFF;
+  color: #8110FF;
+  padding: .3em .4em .3em .5em;
+}
+label.newline {
+  clear: left;
+}
+fieldset {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #E0E0F0;
+  border: 3px solid #7070FF;
+  padding: .7em .5em .5em .5em;
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+}
+fieldset legend {
+  color: #5050FF;
+  padding: .3em .5em .2em .5em;
+  background-color: #E0E0F0;
+  border: 3px solid #7070FF;
+  border-bottom: 0;
+  margin-left: 1.5em;
+  margin-top: -1em;
+  -moz-border-radius: 7px 7px 0 0;
+  -webkit-border-radius: 7px 7px 0 0;
+}
+input.submit {
+  border: 5px solid #F5B800;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  padding: .2em .5em;
+  color: #EBB000;
+  background-color: #FFF0C2;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 7em;
+  margin-top: 2em;
+}
+input.submit:hover {
+  color: #FFF0C2;
+  background-color: #F5B800;
+}
+input.cancel.submit {
+  border: 5px solid #FFDD75;
+  color: #EBB000;
+  background-color: #FFF6DB;
+  font-weight: normal;
+  font-style: italic;
+  margin-left: 5em;
+}
+input.cancel.submit:hover {
+  color: #FFF6DB;
+  background-color: #FFDD75;
+}
+.button_form {
+  display: inline;
+}

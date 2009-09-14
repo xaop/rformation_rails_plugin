@@ -1,0 +1,21 @@
+.good_message
+  %dl
+    %dt User name:
+    %dd= h @user[:user_name]
+    %dt Password:
+    %dd= h @user[:password]
+    %dt Given name:
+    %dd= h @user[:first_name]
+    %dt Family name:
+    %dd= h @user[:last_name]
+    %dt Address:
+    %dd= h @user[:address]
+  .clear
+- if @company
+  .good_message
+    %dl
+      %dt Company name:
+      %dd= h @company[:name]
+      %dt Company address:
+      %dd= h @company[:address]
+    .clear

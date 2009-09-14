@@ -1,0 +1,7 @@
+/ = link_to "private user", :action => "form"
+/ %br
+/ = link_to "corporate user", :action => "corporate_form"
+- form_tag url_for(:action => "form"), :class => "button_form" do
+  = submit_tag "Private user", :class => "submit"
+- form_tag url_for(:action => "corporate_form"), :class => "button_form" do
+  = submit_tag "Corporate user", :class => "submit"

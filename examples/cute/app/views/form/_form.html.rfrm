@@ -1,0 +1,51 @@
+object "user" do
+  group "Login info" do
+    text "user_name" do
+      mandatory
+      label "User name"
+    end
+    text "password" do
+      mandatory
+      label "Password"
+    end
+    text "password_confirmation" do
+      mandatory
+      label "Confirm password"
+    end
+  end
+  group "Personal information" do
+    text "email" do
+      label "Email address"
+    end
+    text "first_name" do
+      label "Given name"
+    end
+    text "last_name" do
+      label "Family name"
+    end
+    text "address", :multi do
+      field_class "newline"
+      label "Address"
+      height 3
+    end
+  end
+end
+group "Corporate information" do
+  box "corporate" do
+    field_class "switch_box"
+    label "Corporate user?"
+  end
+  condition "corporate is on" do
+    object "company" do
+      text "name" do
+        field_class "newline"
+        label "Company name"
+        mandatory
+      end
+      text "address", :multi do
+        label "Company address"
+        height 3
+      end
+    end
+  end
+end
