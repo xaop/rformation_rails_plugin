@@ -23,8 +23,13 @@ object "user" do
     text "last_name" do
       label "Family name"
     end
-    text "address", :multi do
+    select "title" do
+      label "Title"
       field_class "newline"
+      value "Mr."
+      value "Mrs."
+    end
+    text "address", :multi do
       label "Address"
       height 3
     end
