@@ -1,0 +1,123 @@
+body * {
+  font-family: arial;
+  font-size: 100%;
+}
+dl {
+  padding: 0;
+  margin: 0;
+}
+dt {
+  float: left;
+  clear: left;
+  width: 9.5em;
+}
+dd {
+  float: left;
+  margin-left: 1em;
+}
+.clear {
+  clear: both;
+}
+.bad_message {
+  background-color: #FFE8E8;
+  padding: .3em 1em .3em 1em;
+  border: 1px solid #E05050;
+  color: #E05050;
+  margin: 1.5em 1em 1.5em 1em;
+}
+.good_message {
+  background-color: #E8FFE8;
+  padding: .3em 1em .3em 1em;
+  border: 1px solid #50E050;
+  color: #50E050;
+  margin: 1.5em 1em 1.5em 1em;
+}
+label.invalid {
+  color: #E05050;
+}
+label.valid {
+  color: #50E050;
+}
+label {
+  float: left;
+  margin-right: .5em;
+  background-color: #FFFFFF;
+  padding: .3em .3em .3em .3em;
+  border: 1px solid #B0B0B0;
+  color: #707070;
+  margin-bottom: .5em;
+}
+label span, label input, label textarea, label select {
+  display: block;
+  width: 200px;
+  margin: 0;
+}
+label select {
+  width: 204px; /* For some reason this is including the border and padding and for other inputs it us not */
+}
+label span {
+  margin-bottom: 2px;
+}
+label input, label textarea, label select {
+  border: 1px solid #505050;
+  padding: 1px;
+}
+label.switch_box span, label.switch_box input {
+  display: inline;
+  width: auto;
+}
+label.switch_box {
+  float: left;
+  background-color: #FFFFFF;
+  border: 1px solid #B0B0B0;
+  color: #707070;
+  padding: .3em .4em .3em .5em;
+  font-style: italic;
+}
+label.newline {
+  clear: left;
+}
+fieldset {
+  background-color: #FFF8FF;
+  border: 2px solid #505050;
+  padding: .8em .5em .1em .5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.75em;
+}
+fieldset legend {
+  color: #F0F0F0;
+  padding: .1em .5em .1em .5em;
+  background-color: #505050;
+  border: 2px solid #505050;
+  margin-left: 1.5em;
+  margin-bottom: -.25em;
+}
+input.submit {
+  border: 2px solid #505050;
+  padding: 0 .7em;
+  color: #505050;
+  background-color: #F0F0F0;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+input.submit:hover {
+  color: #F0F0F0;
+  background-color: #505050;
+}
+input.cancel.submit {
+  border: 2px solid #909090;
+  color: #909090;
+  background-color: #F0F0F0;
+  font-weight: normal;
+  font-style: italic;
+  margin-left: 2em;
+}
+input.cancel.submit:hover {
+  color: #F0F0F0;
+  background-color: #909090;
+}
+.button_form {
+  display: inline;
+}
