@@ -32,6 +32,7 @@ module RFormation
             form_data.merge!(cleaned_data[key.to_s])
           rescue RFormation::ValidationError => e
             (form_data[:form_errors] ||= {}).merge!(e.errors)
+            form_data.merge!(e.data[key.to_s])
           end
           params.delete(key)
         end
