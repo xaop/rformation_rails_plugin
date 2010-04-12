@@ -26,12 +26,10 @@ module RFormation
     end
     
     def self.register_form(filename, id, form)
-      p [filename, id]
       @@form_cache[[filename, id]] = form
     end
     
     def self.get_form(filename, id)
-      p [filename, id]
       @@form_cache[[filename, id]]
     end
 
