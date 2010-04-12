@@ -26,17 +26,19 @@ module RFormation
     end
     
     def self.register_form(filename, id, form)
+      p [filename, id]
       @@form_cache[[filename, id]] = form
     end
     
     def self.get_form(filename, id)
-      @form_cache[[filename, id]]
+      p [filename, id]
+      @@form_cache[[filename, id]]
     end
 
     def self.clean_params(params)
       form_data = {}
       params.keys.each do |key|
-        if /\A\$rformation\$(.*)$\d+/ === key.to_s
+        if /\A\$rformation\$(.*)\$(\d+)\z/ === key.to_s
           form = get_form(RAILS_ROOT + "/" + $1 + ".html.rfrm", $2.to_i)
           begin
             cleaned_data = form.validate_form({ key => params[key] })
