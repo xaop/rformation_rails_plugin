@@ -7,26 +7,27 @@ module RFormation
     include ActionView::TemplateHandlers::Compilable if defined?(ActionView::TemplateHandlers::Compilable)
 
     def compile(template)
+      filename = template.filename
+      relative_filename = filename.sub(/\A#{Regexp.escape(RAILS_ROOT)}\//, "").sub(/\.html\.rfrm/, '')
       %{
-        lists_of_values = ::RFormation::Plugin::ListsOfValues.new(binding) ; data = ::RFormation::Plugin::DataObjectContainer.new(binding) ; form = ::RFormation::Plugin.get_form(#{template.filename.inspect}) ; form.to_html(:data => data, :lists_of_values => lists_of_values)
+        __lists_of_values__ = ::RFormation::Plugin::ListsOfValues.new(binding)
+        __data__ = ::RFormation::Plugin::DataObjectContainer.new(binding)
+        form = eval(<<-RFRM_END, binding, "FORM_DSL")
+          ::RFormation::Form.new(:filename => #{filename.inspect}, :lists_of_values => __lists_of_values__) do
+            object '$rformation$#{relative_filename}' do
+              #{::File.read(filename).split(/\n/).map { |l| l.inspect[1..-2] }.join("\n")}
+            end
+          end
+        RFRM_END
+        form.to_html(:data => __data__, :lists_of_values => __lists_of_values__)
       }
     end
 
-    def self.get_form(filename)
-      cached_data = @@form_cache[filename]
-      if !cached_data || cached_data[:mtime] < ::File.mtime(filename)
-        relative_filename = filename.sub(/\A#{Regexp.escape(RAILS_ROOT)}\//, "")
-        str = "object '$rformation$#{relative_filename}' do ; #{::File.read(filename)} ; end"
-        cached_data = @@form_cache[filename] = { :mtime => ::File.mtime(filename), :form => RFormation::Form.new(str, :filename => filename, :lists_of_values => proc { true }) }
-      end
-      cached_data[:form]
-    end
-    
     def self.clean_params(params)
       form_data = {}
       params.keys.each do |key|
         if /\A\$rformation\$(.*)/ === key.to_s
-          form = get_form(RAILS_ROOT + "/" + $1)
+          form = get_form(RAILS_ROOT + "/" + $1 + ".html.rfrm")
           begin
             cleaned_data = form.validate_form({ key => params[key] })
             form_data.merge!(cleaned_data[key.to_s])
